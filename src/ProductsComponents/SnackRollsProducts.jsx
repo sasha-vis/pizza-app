@@ -1,12 +1,10 @@
 import React, {useContext} from 'react';
+import { Context } from '../context';
+import productsData from '../json/products.json';
 
-import Context from '../context';
+export function SnackRollProducts() {
 
-const SnackSetProducts = function () {
-
-    const SnackSetProducts = require('../json/products.json');
-
-    const productArr = Object.values(SnackSetProducts.snacksset);
+    const productArr = Object.values(productsData.snacksrolls);
 
     let {cart, setCart} = useContext(Context);
 
@@ -16,13 +14,13 @@ const SnackSetProducts = function () {
         cartArr = JSON.parse(cart);
     }
 
-    if (!cartArr.snacksset) cartArr.snacksset = [];
+    if (!cartArr.snacksrolls) cartArr.snacksrolls = [];
 
     const toCart = function (event) {
         const li = event.target.closest('li');
 
-        if (cartArr.snacksset.indexOf(li.dataset.id) === -1) {
-            cartArr.snacksset.push(li.dataset.id);
+        if (cartArr.snacksrolls.indexOf(li.dataset.id) === -1) {
+            cartArr.snacksrolls.push(li.dataset.id);
 
             let cartStr = JSON.stringify(cartArr);
             localStorage.setItem('cart', cartStr);
@@ -32,7 +30,7 @@ const SnackSetProducts = function () {
     };
  
     return (
-        <ul className="snacks-goods-set">{
+        <ul className="snacks-goods-rolls">{
             productArr.map((item, index) =>
                 <li className="product" key={index} data-id={index}>
                     <div className="product-img">
@@ -41,15 +39,14 @@ const SnackSetProducts = function () {
                     <div className="product-description">
                         <h3>{item.name}</h3>
                         <div className="size-weight">{item.size}</div>
+                        <div className="description">{item.description}</div>
                     </div>
                     <div className="add-container">
                         <div className="cost">{item.cost}</div>
-                        {cartArr.snacksset.indexOf(item.id) === -1 ? <button className="add-btn" onClick={toCart}>В корзину</button> : <button className="add-btn at-cart" onClick={toCart}>В корзине</button>}
+                        {cartArr.snacksrolls.indexOf(item.id) === -1 ? <button className="add-btn" onClick={toCart}>В корзину</button> : <button className="add-btn at-cart" onClick={toCart}>В корзине</button>}
                     </div>
                 </li>
             )    
         }</ul>
     );
-};
-
-export default SnackSetProducts;
+}

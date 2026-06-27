@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react';
 import {NavLink} from 'react-router-dom';
-import Context from './context';
-import CartAdd from './CartAdd';
+import { Context } from './context';
+import { CartAdd } from './CartAdd';
 
-function Cart() {
+export function Cart() {
 
     let {cart, setCart, totalCost, setTotalCost, cartAmount, setCartAmount} = useContext(Context);
 
@@ -119,4 +119,3 @@ function Cart() {
     )
 };
 
-export default Cart;

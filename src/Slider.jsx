@@ -1,9 +1,9 @@
 import React from 'react';
 import Slider from "react-slick";
 
-const SliderComponent = function () {
+import images from './json/images.json';
 
-    const images = require('./json/images.json');
+export function SliderComponent() {
 
     const slidesArr = Object.values(images.slides);
 
@@ -26,4 +26,3 @@ const SliderComponent = function () {
     );
 };
 
-export default SliderComponent;

@@ -1,11 +1,10 @@
 import React, {useContext} from 'react';
-import Context from '../context';
+import { Context } from '../context';
+import productsData from '../json/products.json';
 
-const SauceProducts = function () {
+export function SnackSetProducts() {
 
-    const SauceProducts = require('../json/products.json');
-
-    const productArr = Object.values(SauceProducts.sauces);
+    const productArr = Object.values(productsData.snacksset);
 
     let {cart, setCart} = useContext(Context);
 
@@ -15,13 +14,13 @@ const SauceProducts = function () {
         cartArr = JSON.parse(cart);
     }
 
-    if (!cartArr.sauces) cartArr.sauces = [];
+    if (!cartArr.snacksset) cartArr.snacksset = [];
 
     const toCart = function (event) {
         const li = event.target.closest('li');
 
-        if (cartArr.sauces.indexOf(li.dataset.id) === -1) {
-            cartArr.sauces.push(li.dataset.id);
+        if (cartArr.snacksset.indexOf(li.dataset.id) === -1) {
+            cartArr.snacksset.push(li.dataset.id);
 
             let cartStr = JSON.stringify(cartArr);
             localStorage.setItem('cart', cartStr);
@@ -31,7 +30,7 @@ const SauceProducts = function () {
     };
  
     return (
-        <ul className="sauces-goods">{
+        <ul className="snacks-goods-set">{
             productArr.map((item, index) =>
                 <li className="product" key={index} data-id={index}>
                     <div className="product-img">
@@ -39,15 +38,14 @@ const SauceProducts = function () {
                     </div>
                     <div className="product-description">
                         <h3>{item.name}</h3>
+                        <div className="size-weight">{item.size}</div>
                     </div>
                     <div className="add-container">
                         <div className="cost">{item.cost}</div>
-                        {cartArr.sauces.indexOf(item.id) === -1 ? <button className="add-btn" onClick={toCart}>В корзину</button> : <button className="add-btn at-cart" onClick={toCart}>В корзине</button>}
+                        {cartArr.snacksset.indexOf(item.id) === -1 ? <button className="add-btn" onClick={toCart}>В корзину</button> : <button className="add-btn at-cart" onClick={toCart}>В корзине</button>}
                     </div>
                 </li>
             )    
         }</ul>
     );
-};
-
-export default SauceProducts;
+}

@@ -1,20 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter, Route, NavLink} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom';
 
-import Context from './context';
+import { Context } from './context';
 
-import Catalog from './Catalog';
-import Cart from './Cart';
+import { Catalog } from './Catalog';
+import { Cart } from './Cart';
 
 import './media.css';
 import './App.css';
 import './Cart.css';
 
 import logo from './phoenix-logo.png';
+import images from './json/images.json';
 
-const App = function () {
-
-	const images = require('./json/images.json');
+export function App() {
 
 	const [cart, setCart] = useState(function(){
         let cartStr = localStorage.getItem('cart') || '';
@@ -69,22 +68,6 @@ const App = function () {
 		window.scrollTo(0, 0);
 	};
 
-	// const toPizza = function () {
-	// 	document.location.replace(`${window.location.href}/#pizzas`);
-	// };
-	// const toSnacks = function () {
-	// 	document.location.replace(`${window.location.href}/#snacks`);
-	// };
-	// const toDesserts = function () {
-	// 	document.location.replace(`${window.location.href}/#desserts`);
-	// };
-	// const toDrinks = function () {
-	// 	document.location.replace(`${window.location.href}/#drinks`);
-	// };
-	// const toSauces = function () {
-	// 	document.location.replace(`${window.location.href}/#sauces`);
-	// };
-
 	return (
 		<BrowserRouter>
 		<Context.Provider value={{cart, setCart, totalCost, setTotalCost, cartAmount, setCartAmount}}>
@@ -95,7 +78,7 @@ const App = function () {
 
 							<div className="header-top-left">Доставка пиццы<div>бесплатно</div></div>
 
-							<div className="header-top-center"><a href="/PizzaAppReactJS/"><img className='logo' src={logo} alt="#" /></a>Пицца Феникс</div>
+							<div className="header-top-center"><a href="/"><img className='logo' src={logo} alt="#" /></a>Пицца Феникс</div>
 
 							<div className="header-top-right">
 								<div className="header-contacts"><a href="tel:+375293776020">377-60-20</a></div>
@@ -111,21 +94,15 @@ const App = function () {
 						<div className="nav-wrapper">
 
 							<ul className="nav-goods">
-								{/* <li className="pizza-ico" onClick={exitBurger, toPizza}><a href="/#pizzas"><p>Пиццы</p></a></li> */}
-								{/* <li className="pizza-ico"><a href="/#pizzas"><p>Пиццы</p></a></li>
-								<li className="snack-ico" onClick={exitBurger, toSnacks}><a href="/#snacks"><p>Закуски</p></a></li>
-								<li className="dessert-ico" onClick={exitBurger, toDesserts}><a href="/#desserts"><p>Десерты</p></a></li>
-								<li className="drink-ico" onClick={exitBurger, toDrinks}><a href="/#drinks"><p>Напитки</p></a></li>
-								<li className="sauce-ico" onClick={exitBurger, toSauces}><a href="/#sauces"><p>Соусы</p></a></li> */}
-								<li className="pizza-ico"><a onClick={exitBurger} href="/PizzaAppReactJS/#pizzas"><p>Пиццы</p></a></li>
-								<li className="snack-ico"><a onClick={exitBurger} href="/PizzaAppReactJS/#snacks"><p>Закуски</p></a></li>
-								<li className="dessert-ico"><a onClick={exitBurger} href="/PizzaAppReactJS/#desserts"><p>Десерты</p></a></li>
-								<li className="drink-ico"><a onClick={exitBurger} href="/PizzaAppReactJS/#drinks"><p>Напитки</p></a></li>
-								<li className="sauce-ico"><a onClick={exitBurger} href="/PizzaAppReactJS/#sauces"><p>Соусы</p></a></li>
+								<li className="pizza-ico"><a onClick={exitBurger} href="/#pizzas"><p>Пиццы</p></a></li>
+								<li className="snack-ico"><a onClick={exitBurger} href="/#snacks"><p>Закуски</p></a></li>
+								<li className="dessert-ico"><a onClick={exitBurger} href="/#desserts"><p>Десерты</p></a></li>
+								<li className="drink-ico"><a onClick={exitBurger} href="/#drinks"><p>Напитки</p></a></li>
+								<li className="sauce-ico"><a onClick={exitBurger} href="/#sauces"><p>Соусы</p></a></li>
 								<div className="bg" onClick={exitBurger}></div>
 							</ul>
 
-							<NavLink to='/PizzaAppReactJS/cart' onClick={scroll} className="cart-btn">Корзина<span>{cartAmount}</span></NavLink>
+							<NavLink to='/cart' onClick={scroll} className="cart-btn">Корзина<span>{cartAmount}</span></NavLink>
 
 							<div className="burger-btn" onClick={openBurger}>
 								<div className="burger-line"></div>
@@ -136,15 +113,17 @@ const App = function () {
 				</nav>
 
 				<main className="main">
-					<Route exact path='/PizzaAppReactJS/' component={Catalog} />
-					<Route path='/PizzaAppReactJS/cart' component={Cart} />
+					<Routes>
+						<Route path='/' element={<Catalog />} />
+						<Route path='/cart' element={<Cart />} />
+					</Routes>
 					<div id="arrowTop" onClick={scroll}></div>
 				</main>
-				
+
 				<footer className="footer">
 					<div className="footer-container">
 						<div className="footer-wrapper">
-							<div className="logo"><a href="/"><img src={logo}/></a></div>
+							<div className="logo"><a href="/"><img src={logo} alt="#"/></a></div>
 							<div className="footer-contacts">
 								<div className="messangers">
 									<a href="https://www.instagram.com"><img src={images.contacts.inst} alt="#"/></a>
@@ -174,4 +153,3 @@ const App = function () {
 	)
 }
 
-export default App;

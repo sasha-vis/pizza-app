@@ -1,17 +1,17 @@
 import React from 'react';
 
-import PizzaProducts from './ProductsComponents/PizzaProducts.js';
-import SnackProducts from './ProductsComponents/SnackProducts';
-import SnackSetProducts from './ProductsComponents/SnackSetProducts';
-import SnackFreeturProducts from './ProductsComponents/SnackFreeturProducts';
-import SnackRollsProducts from './ProductsComponents/SnackRollsProducts';
-import DessertProducts from './ProductsComponents/DessertProducts';
-import DrinkProducts from './ProductsComponents/DrinkProducts';
-import SauceProducts from './ProductsComponents/SauceProducts';
+import { PizzaProducts } from './ProductsComponents/PizzaProducts';
+import { SnackProducts } from './ProductsComponents/SnackProducts';
+import { SnackSetProducts } from './ProductsComponents/SnackSetProducts';
+import { SnackFreeturProducts } from './ProductsComponents/SnackFreeturProducts';
+import { SnackRollProducts } from './ProductsComponents/SnackRollsProducts';
+import { DessertProducts } from './ProductsComponents/DessertProducts';
+import { DrinkProducts } from './ProductsComponents/DrinkProducts';
+import { SauceProducts } from './ProductsComponents/SauceProducts';
 
-import SliderComponent from './Slider';
+import { SliderComponent } from './Slider';
 
-const Catalog = () => {
+export function Catalog() {
 
     return (
         <div className="main-container">
@@ -29,7 +29,7 @@ const Catalog = () => {
                 <SnackProducts />
                 <SnackSetProducts />
                 <SnackFreeturProducts />
-                <SnackRollsProducts />
+                <SnackRollProducts />
             </div>
             <div className="main-desserts">
                 <a name="desserts"></a>
@@ -49,5 +49,3 @@ const Catalog = () => {
         </div>
     )
 }
-
-export default Catalog;

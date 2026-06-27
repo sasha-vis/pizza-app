@@ -1,13 +1,10 @@
 import React, {useContext} from 'react';
-import Context from '../context';
+import { Context } from '../context';
+import productsData from '../json/products.json';
 
-// import image from './images/pizzas/vega.jpg'
+export function DrinkProducts() {
 
-const SnackRollProducts = function () {
-
-    const SnackRollProducts = require('../json/products.json');
-
-    const productArr = Object.values(SnackRollProducts.snacksrolls);
+    const productArr = Object.values(productsData.drinks);
 
     let {cart, setCart} = useContext(Context);
 
@@ -17,13 +14,13 @@ const SnackRollProducts = function () {
         cartArr = JSON.parse(cart);
     }
 
-    if (!cartArr.snacksrolls) cartArr.snacksrolls = [];
+    if (!cartArr.drinks) cartArr.drinks = [];
 
     const toCart = function (event) {
         const li = event.target.closest('li');
 
-        if (cartArr.snacksrolls.indexOf(li.dataset.id) === -1) {
-            cartArr.snacksrolls.push(li.dataset.id);
+        if (cartArr.drinks.indexOf(li.dataset.id) === -1) {
+            cartArr.drinks.push(li.dataset.id);
 
             let cartStr = JSON.stringify(cartArr);
             localStorage.setItem('cart', cartStr);
@@ -33,7 +30,7 @@ const SnackRollProducts = function () {
     };
  
     return (
-        <ul className="snacks-goods-rolls">{
+        <ul className="drinks-goods">{
             productArr.map((item, index) =>
                 <li className="product" key={index} data-id={index}>
                     <div className="product-img">
@@ -42,16 +39,13 @@ const SnackRollProducts = function () {
                     <div className="product-description">
                         <h3>{item.name}</h3>
                         <div className="size-weight">{item.size}</div>
-                        <div className="description">{item.description}</div>
                     </div>
                     <div className="add-container">
                         <div className="cost">{item.cost}</div>
-                        {cartArr.snacksrolls.indexOf(item.id) === -1 ? <button className="add-btn" onClick={toCart}>В корзину</button> : <button className="add-btn at-cart" onClick={toCart}>В корзине</button>}
+                        {cartArr.drinks.indexOf(item.id) === -1 ? <button className="add-btn" onClick={toCart}>В корзину</button> : <button className="add-btn at-cart" onClick={toCart}>В корзине</button>}
                     </div>
                 </li>
             )    
         }</ul>
     );
-};
-
-export default SnackRollProducts;
+}

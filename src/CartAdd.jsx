@@ -1,10 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { renderIntoDocument } from 'react-dom/test-utils';
-import Context from './context';
+import { Context } from './context';
 
 import productsData from './json/products.json';
 
-const CartAdd = function() {
+export function CartAdd() {
 
     let {cart, setCart, totalCost, setTotalCost} = useContext(Context);
 
@@ -156,4 +155,3 @@ const CartAdd = function() {
     }
 };
 
-export default CartAdd;

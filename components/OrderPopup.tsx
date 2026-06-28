@@ -4,11 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { useCartStore, useTotalCost } from "@/lib/store";
+import { createOrder, buildOrderProducts } from "@/lib/orders";
 
 export function OrderPopup() {
 	const [open, setOpen] = useState(false);
 	const [payment, setPayment] = useState("");
+	const [sending, setSending] = useState(false);
 	const totalCost = useTotalCost();
+	const items = useCartStore((state) => state.items);
 	const clear = useCartStore((state) => state.clear);
 
 	const openPopup = () => {
@@ -21,11 +24,61 @@ export function OrderPopup() {
 		setOpen(true);
 	};
 
-	const submit = (e: React.FormEvent) => {
+	const submit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		setOpen(false);
-		alert("Спасибо за ваш заказ. Оператор свяжется с вами в ближайшее время");
-		clear();
+
+		const fd = new FormData(e.currentTarget);
+		const get = (key: string) => String(fd.get(key) ?? "").trim();
+
+		const name = get("Имя");
+		const phone = get("Номер телефона");
+		const street = get("Улица");
+		const house = get("Дом");
+
+		// Простая валидация обязательных полей.
+		if (!name) return alert("Пожалуйста, укажите ваше имя");
+		if (phone.replace(/\D/g, "").length < 7)
+			return alert("Пожалуйста, укажите корректный номер телефона");
+		if (!street || !house)
+			return alert("Пожалуйста, укажите улицу и дом для доставки");
+		if (!payment) return alert("Пожалуйста, выберите способ оплаты");
+
+		// Собираем адрес из заполненных частей в одну строку.
+		const address = [
+			`ул. ${street}, д. ${house}`,
+			get("Квартира") && `кв. ${get("Квартира")}`,
+			get("Подъезд") && `подъезд ${get("Подъезд")}`,
+			get("Этаж") && `этаж ${get("Этаж")}`,
+			get("Код двери") && `код ${get("Код двери")}`,
+		]
+			.filter(Boolean)
+			.join(", ");
+
+		setSending(true);
+		try {
+			await createOrder({
+				name,
+				phone,
+				address,
+				total: totalCost,
+				items: {
+					products: buildOrderProducts(items),
+					payment,
+					comment: get("Комментарий"),
+				},
+			});
+			setOpen(false);
+			alert(
+				"Спасибо за ваш заказ. Оператор свяжется с вами в ближайшее время",
+			);
+			clear();
+		} catch {
+			alert(
+				"Не удалось оформить заказ. Попробуйте ещё раз или позвоните нам.",
+			);
+		} finally {
+			setSending(false);
+		}
 	};
 
 	return (
@@ -139,8 +192,12 @@ export function OrderPopup() {
 								)}
 							</div>
 						</div>
-						<button className="confirm-btn" type="submit">
-							Подтвердить заказ
+						<button
+							className="confirm-btn"
+							type="submit"
+							disabled={sending}
+						>
+							{sending ? "Отправляем…" : "Подтвердить заказ"}
 						</button>
 					</form>
 					<button

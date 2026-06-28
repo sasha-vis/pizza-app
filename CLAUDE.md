@@ -5,9 +5,12 @@
 ## О проекте
 
 Интернет-магазин пиццы «Пицца Феникс» (доставка в Минске): каталог товаров,
-корзина с персистом в localStorage, форма оформления заказа. Изначально —
-CRA/React 18 SPA на GitHub Pages; мигрирован на **Next.js 15 (App Router)**.
+корзина с персистом в localStorage, форма оформления заказа с записью заявки в
+БД. Изначально — CRA/React 18 SPA на GitHub Pages; мигрирован на
+**Next.js 15 (App Router)** (Фаза 1), заказы пишутся в **Supabase** (Фаза 2).
 Деплой — на Vercel (ветка `gh-pages` и старый GitHub Pages удалены).
+
+Теги: `v1` — оригинал (CRA/React 17, 2021); `v2` — Next.js + Supabase.
 
 ## Стек
 
@@ -18,6 +21,8 @@ CRA/React 18 SPA на GitHub Pages; мигрирован на **Next.js 15 (App 
   Основная вёрстка — на обычном CSS (перенесён из старого проекта), Tailwind
   доступен для нового кода.
 - **Zustand 5** — стор корзины с middleware `persist`.
+- **Supabase** (`@supabase/supabase-js`) — БД заказов (Postgres) + админка.
+  Заказ пишется с клиента publishable-ключом; доступ ограничен RLS.
 - **embla-carousel-react** — слайдер баннеров на главной (заменил react-slick).
 - **ESLint 9** (flat config, `eslint.config.mjs`) + **Prettier** (отступы табами).
 
@@ -64,8 +69,11 @@ npm run format   # prettier --write .
 - **`CartList.tsx`** (client) — позиции корзины (бывш. `CartAdd.jsx`), кнопки
   +/−/удалить и построчная сумма — из стора, без DOM-датасетов и замыканий.
 - **`OrderPopup.tsx`** (client) — кнопки «Вернуться»/«Заказать» + попап-форма;
-  открытие/закрытие через `useState`; гард мин. суммы 15 руб.; submit → `clear()`
-  + сообщение (реальная запись заказа — Фаза 2).
+  открытие/закрытие через `useState`; гард мин. суммы 15 руб. На submit: чтение
+  полей через `FormData` (имена полей — русские: `Имя`, `Номер телефона`, `Улица`,
+  `Дом`, ...), валидация обязательных (имя, телефон ≥7 цифр, улица+дом, оплата),
+  сборка адреса в строку, `createOrder(...)` → `clear()` + сообщение; кнопка
+  блокируется на время отправки (`sending`).
 - **`ScrollTopButton.tsx`** (client) — `window.scrollTo(0, 0)`.
 
 ### Данные и доступ (`data/`, `lib/`)
@@ -83,6 +91,11 @@ npm run format   # prettier --write .
   `getCost(category, id)` (`parseFloat(cost.replace(',', '.'))`), и `CATEGORIES`
   (`{ key, listClassName }[]` для рендера секций).
 - **`lib/store.ts`** — Zustand-стор корзины (см. ниже).
+- **`lib/supabase.ts`** — клиент Supabase (`createClient` из URL + publishable-
+  ключа в env).
+- **`lib/orders.ts`** — запись заказа: `buildOrderProducts(cartItems)` (снимок
+  позиций: имя/размер/цена на момент заказа) и `createOrder(order)` (`insert` в
+  таблицу `orders`, бросает ошибку при сбое).
 - **`lib/useHydrated.ts`** — `useHydrated()`: `true` только после монтирования;
   гард против hydration mismatch для значений из persist (бейдж, сумма, состояние
   кнопок) — на сервере и в 1-м клиентском рендере отдаём дефолт.
@@ -100,6 +113,20 @@ npm run format   # prettier --write .
   (Σ `getCost * qty`; округление 1:1 с оригиналом — позиция `toFixed(2)`, итог
   `toFixed(1)`), `useHasInCart(category, id)`.
 - Минимальная сумма заказа — 15 руб. (гард в `OrderPopup`).
+
+### Заказы и Supabase (`lib/supabase.ts`, `lib/orders.ts`)
+
+- Таблица **`orders`**: `id, created_at, name, phone, address, items jsonb, total,
+  status` (по умолчанию `status = 'new'`). `items` хранит
+  `{ products: {name, size?, qty, cost}[], payment, comment }`.
+- **RLS включён**, политика разрешает роли `anon` **только `INSERT`**
+  (`with check (true)`). С фронта нельзя читать/править заявки — они видны лишь в
+  Table Editor Supabase. Если добавляешь чтение/обновление с клиента — нужна новая
+  политика.
+- Ключ — **publishable** (`sb_publishable_...`), безопасен для браузера.
+- Переменные окружения: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+  Локально — в `.env.local` (в `.gitignore`); на Vercel — заданы для Production +
+  Preview. Префикс `NEXT_PUBLIC_` обязателен (значения нужны клиентскому коду).
 
 ### Статика
 
@@ -128,6 +155,9 @@ npm run format   # prettier --write .
   рендерятся условно по наличию. Не делай их обязательными в разметке.
 - При запуске под Node возможен `ExperimentalWarning: localStorage` (SSR persist) —
   безвреден, `createJSONStorage` корректно деградирует на сервере.
+- **Supabase env-переменные** нужны и локально (`.env.local`), и на Vercel. Если на
+  проде заказ не оформляется — первым делом проверь, что обе переменные заданы для
+  Production и сделан Redeploy. `.env.local` в гит не коммитится.
 
 ## Стиль кода
 

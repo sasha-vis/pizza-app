@@ -9,7 +9,7 @@ since been migrated to **Next.js 15 (App Router)** and connected to **Supabase**
 > Russian-speaking market (Minsk, Belarus). Internationalization (i18n) is a
 > possible future enhancement.
 
-**Live demo:** _add your Vercel URL here_
+**Live demo:** https://pizza-app-aleksandrvysotski.vercel.app
 
 ## Tech stack
 

@@ -19,7 +19,8 @@ const eslintConfig = [
 		},
 	},
 	{
-		ignores: [".next/**", "out/**", "node_modules/**"],
+		// next-env.d.ts автогенерируется Next (triple-slash reference) — не линтим.
+		ignores: [".next/**", "out/**", "node_modules/**", "next-env.d.ts"],
 	},
 ];
 

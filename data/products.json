@@ -2,7 +2,7 @@
     "pizzas" : {
         "product1": {
             "id": "0",
-            "img": "./images/pizzas/bifteis.jpg",
+            "img": "/images/pizzas/bifteis.jpg",
             "name": "Биф тейсти",
             "size": "0,8–0,9 кг",
             "description": "соус гриль, грудинка (свинина), фарш (говядина), свежие томаты , листья салата, свежий лук, сыр моцарелла, кунжут, базилик",
@@ -10,7 +10,7 @@
         },
         "product2": {
             "id": "1",
-            "img": "./images/pizzas/los.jpg",
+            "img": "/images/pizzas/los.jpg",
             "name": "Лосось и вяленые томаты",
             "size": "0,8–0,9 кг",
             "description": "соус макстейсти, филе лосося слабосоленое, томаты полусушеные маринованные, сыр моцарелла, базилик",
@@ -18,7 +18,7 @@
         },
         "product3": {
             "id": "2",
-            "img": "./images/pizzas/buzmaks.jpg",
+            "img": "/images/pizzas/buzmaks.jpg",
             "name": "Буженина макс-тейсти",
             "size": "0,8–0,9 кг",
             "description": "соус макстейсти, буженина (свинина), грудинка (свинина), листья салата, соленые огурцы, свежий лук, сыр моцарелла, кунжут, базилик",
@@ -26,7 +26,7 @@
         },
         "product4": {
             "id": "3",
-            "img": "./images/pizzas/ranch.jpg",
+            "img": "/images/pizzas/ranch.jpg",
             "name": "Ранч пицца",
             "size": "0,8–0,9 кг",
             "description": "американский соус ранч, филе цыпленка, ветчина, свежие томаты, сыр моцарелла, базилик",
@@ -34,7 +34,7 @@
         },
         "product5": {
             "id": "4",
-            "img": "./images/pizzas/cipbar.jpg",
+            "img": "/images/pizzas/cipbar.jpg",
             "name": "Цыпленок барбекю",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, грудинка (свинина), филе цыпленка, свежий лук, соус барбекю, сыр моцарелла, базилик",
@@ -42,7 +42,7 @@
         },
         "product6": {
             "id": "5",
-            "img": "./images/pizzas/bav.jpg",
+            "img": "/images/pizzas/bav.jpg",
             "name": "Баварская",
             "size": "0,8–0,9 кг",
             "description": "сладкий горчичный соус, охотничьи колбаски, свежие шампиньоны, свежий лук, свежие томаты, сыр моцарелла, базилик",
@@ -50,7 +50,7 @@
         },
         "product7": {
             "id": "6",
-            "img": "./images/pizzas/gav.jpg",
+            "img": "/images/pizzas/gav.jpg",
             "name": "Гавайская",
             "size": "0,8–0,9 кг",
             "description": "сырный соус, ветчина, филе цыпленка, ананасы, сыр моцарелла, базилик",
@@ -58,7 +58,7 @@
         },
         "product8": {
             "id": "7",
-            "img": "./images/pizzas/grib.jpg",
+            "img": "/images/pizzas/grib.jpg",
             "name": "Грибная",
             "size": "0,8–0,9 кг",
             "description": "чесночный соус, ветчина, свежие шампиньоны, сыр моцарелла, базилик",
@@ -66,7 +66,7 @@
         },
         "product9": {
             "id": "8",
-            "img": "./images/pizzas/sircip.jpg",
+            "img": "/images/pizzas/sircip.jpg",
             "name": "Сырный цыпленок",
             "size": "0,8–0,9 кг",
             "description": "cырный соус, филе цыпленка, свежие томаты, сыр моцарелла, кунжут, базилик",
@@ -74,7 +74,7 @@
         },
         "product10": {
             "id": "9",
-            "img": "./images/pizzas/der.jpg",
+            "img": "/images/pizzas/der.jpg",
             "name": "Деревенская",
             "size": "0,8–0,9 кг",
             "description": "американский соус ранч, грудинка (свинина), свежий лук, соленые огурцы, свежие шампиньоны, сыр моцарелла, базилик",
@@ -82,7 +82,7 @@
         },
         "product11": {
             "id": "10",
-            "img": "./images/pizzas/kopcipohkol.jpg",
+            "img": "/images/pizzas/kopcipohkol.jpg",
             "name": "Копченый цыпленок и охотничьи колбаски",
             "size": "0,8–0,9 кг",
             "description": "чесночный соус, филе цыпленка копчено-вареное, охотничьи колбаски, свежие шампиньоны, свежий болгарский перец, сыр моцарелла, базилик",
@@ -90,7 +90,7 @@
         },
         "product12": {
             "id": "11",
-            "img": "./images/pizzas/colbar.jpg",
+            "img": "/images/pizzas/colbar.jpg",
             "name": "Колбаски барбекю",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, охотничьи колбаски, свежий лук, свежие шампиньоны, грудинка (свинина), соленые огурцы, американский соус ранч, соус барбекю, сыр моцарелла, базилик",
@@ -98,7 +98,7 @@
         },
         "product13": {
             "id": "12",
-            "img": "./images/pizzas/chescip.jpg",
+            "img": "/images/pizzas/chescip.jpg",
             "name": "Чесночный цыпленок",
             "size": "0,8–0,9 кг",
             "description": "чесночный соус, филе цыпленка, грудинка (свинина), свежие томаты, сыр моцарелла, базилик",
@@ -106,7 +106,7 @@
         },
         "product14": {
             "id": "13",
-            "img": "./images/pizzas/fran.jpg",
+            "img": "/images/pizzas/fran.jpg",
             "name": "Французский цыпленок",
             "size": "0,8–0,9 кг",
             "description": "грибной соус, филе цыпленка, свежие шампиньоны, свежий лук, сыр моцарелла, базилик",
@@ -114,7 +114,7 @@
         },
         "product15": {
             "id": "14",
-            "img": "./images/pizzas/sal.jpg",
+            "img": "/images/pizzas/sal.jpg",
             "name": "Салями, ветчина и грибы",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, свежие шампиньоны, варено-копченая салями, ветчина, сыр моцарелла, базилик",
@@ -122,7 +122,7 @@
         },
         "product16": {
             "id": "15",
-            "img": "./images/pizzas/myasn.jpg",
+            "img": "/images/pizzas/myasn.jpg",
             "name": "Мясная",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, пепперони, ветчина, фарш (говядина), грудинка (свинина), сыр моцарелла, базилик",
@@ -130,7 +130,7 @@
         },
         "product17": {
             "id": "16",
-            "img": "./images/pizzas/ostr.jpg",
+            "img": "/images/pizzas/ostr.jpg",
             "name": "Острая чили",
             "size": "0,8–0,9 кг",
             "description": "острый перец халапеньо, чесночный соус, сладкий соус чили, пепперони, грудинка (свинина), свежий болгарский перец, сыр моцарелла, перец кайенский",
@@ -138,7 +138,7 @@
         },
         "product18": {
             "id": "17",
-            "img": "./images/pizzas/kantri.jpg",
+            "img": "/images/pizzas/kantri.jpg",
             "name": "Кантри четыре сезона",
             "size": "0,8–0,9 кг",
             "description": "грибной соус, буженина (свинина), грудинка (свинина), маринованные опята, сыр фета, сыр дорблю, сыр моцарелла, базилик",
@@ -146,7 +146,7 @@
         },
         "product19": {
             "id": "18",
-            "img": "./images/pizzas/cipdor.jpg",
+            "img": "/images/pizzas/cipdor.jpg",
             "name": "Цыпленок дорблю",
             "size": "0,8–0,9 кг",
             "description": "сырный соус,филе цыпленка, сыр дорблю, сыр моцарелла, базилик",
@@ -154,7 +154,7 @@
         },
         "product20": {
             "id": "19",
-            "img": "./images/pizzas/fil.jpg",
+            "img": "/images/pizzas/fil.jpg",
             "name": "Филадельфия",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, филе лосося слабосоленое, сыр фета, лимон, свежие томаты, сыр моцарелла, базилик",
@@ -162,7 +162,7 @@
         },
         "product21": {
             "id": "20",
-            "img": "./images/pizzas/chetsir.jpg",
+            "img": "/images/pizzas/chetsir.jpg",
             "name": "Четыре сыра",
             "size": "0,8–0,9 кг",
             "description": "сырный соус, сливочный сыр, сыр фета, сыр дорблю, сыр моцарелла, базилик",
@@ -170,7 +170,7 @@
         },
         "product22": {
             "id": "21",
-            "img": "./images/pizzas/pizlis.jpg",
+            "img": "/images/pizzas/pizlis.jpg",
             "name": "Пицца лисицца",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, ветчина, пепперони, свежие шампиньоны, свежий болгарский перец, свежие томаты, сыр моцарелла, базилик",
@@ -178,7 +178,7 @@
         },
         "product23": {
             "id": "22",
-            "img": "./images/pizzas/trisiz.jpg",
+            "img": "/images/pizzas/trisiz.jpg",
             "name": "3 сезона микс",
             "size": "0,8–0,9 кг",
             "description": "сырный соус, свежие шампиньоны, филе цыпленка, пепперони, сыр моцарелла, базилик",
@@ -186,7 +186,7 @@
         },
         "product24": {
             "id": "23",
-            "img": "./images/pizzas/chetsiz.jpg",
+            "img": "/images/pizzas/chetsiz.jpg",
             "name": "Четыре сезона",
             "size": "0,8–0,9 кг",
             "description": "чесночный соус, пепперони, ветчина, свежие шампиньоны, филе цыпленка, сыр моцарелла, базилик",
@@ -194,7 +194,7 @@
         },
         "product25": {
             "id": "24",
-            "img": "./images/pizzas/gribcip.jpg",
+            "img": "/images/pizzas/gribcip.jpg",
             "name": "Грибной цыпленок",
             "size": "0,8–0,9 кг",
             "description": "американский соус ранч, филе цыпленка, ветчина, свежие шампиньоны, сыр фета, сладкий горчичный соус, сыр моцарелла, базилик",
@@ -202,7 +202,7 @@
         },
         "product26": {
             "id": "25",
-            "img": "./images/pizzas/chiz.jpg",
+            "img": "/images/pizzas/chiz.jpg",
             "name": "Чизбургер пицца",
             "size": "0,8–0,9 кг",
             "description": "сырный соус, грудинка (свинина), фарш (говядина), свежие томаты, соленые огурцы, свежий лук, сыр моцарелла, кунжут, базилик",
@@ -210,7 +210,7 @@
         },
         "product27": {
             "id": "26",
-            "img": "./images/pizzas/ukr.jpg",
+            "img": "/images/pizzas/ukr.jpg",
             "name": "Украинская",
             "size": "0,8–0,9 кг",
             "description": "чесночный соус, грудинка (свинина), ветчина, свежий лук, соленые огурцы, сладкий горчичный соус, сыр моцарелла, базилик",
@@ -218,7 +218,7 @@
         },
         "product28": {
             "id": "27",
-            "img": "./images/pizzas/ital.jpg",
+            "img": "/images/pizzas/ital.jpg",
             "name": "Итальянская",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, пепперони, свежие шампиньоны, грудинка (свинина), маслины, сыр моцарелла, базилик",
@@ -226,7 +226,7 @@
         },
         "product29": {
             "id": "28",
-            "img": "./images/pizzas/pep.jpg",
+            "img": "/images/pizzas/pep.jpg",
             "name": "Пепперони",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, пепперони, сыр моцарелла, базилик",
@@ -234,7 +234,7 @@
         },
         "product30": {
             "id": "29",
-            "img": "./images/pizzas/vega.jpg",
+            "img": "/images/pizzas/vega.jpg",
             "name": "Вегетарианская",
             "size": "0,8–0,9 кг",
             "description": "пицца-соус, томаты полусушеные маринованные, свежие шампиньоны, свежий болгарский перец, сыр фета, маслины, сыр моцарелла, базилик",
@@ -245,7 +245,7 @@
     "snacks": {
         "product1": {
             "id": "0",
-            "img": "./images/snacks/tp.jpg",
+            "img": "/images/snacks/tp.jpg",
             "name": "Тейсти пайк",
             "size": "1 шт. 0,35–0,4 кг",
             "description": "сыр моцарелла, соленые огурцы, соус гриль, грудинка (свинина)",
@@ -254,7 +254,7 @@
 
         "product2": {
             "id": "1",
-            "img": "./images/snacks/op.jpg",
+            "img": "/images/snacks/op.jpg",
             "name": "Острый пайк",
             "size": "1 шт. 0,35–0,4 кг",
             "description": "сыр моцарелла, чесночный соус, свежий болгарский перец, пепперони, перец халапеньо",
@@ -262,7 +262,7 @@
         },
         "product3": {
             "id": "2",
-            "img": "./images/snacks/gp.jpg",
+            "img": "/images/snacks/gp.jpg",
             "name": "Пайк с грибами",
             "size": "1 шт. 0,35–0,4 кг",
             "description": "сыр моцарелла, чесночный соус, ветчина, шампиньоны гриль",
@@ -270,7 +270,7 @@
         },
         "product4": {
             "id": "3",
-            "img": "./images/snacks/vm.jpg",
+            "img": "/images/snacks/vm.jpg",
             "name": "Вкуснейший мохентохен",
             "size": "2 шт. 320 г",
             "description": "пшеничная лепешка, американский соус ранч, филе цыпленка, свежие томаты, сыр моцарелла",
@@ -278,7 +278,7 @@
         },
         "product5": {
             "id": "4",
-            "img": "./images/snacks/bm.jpg",
+            "img": "/images/snacks/bm.jpg",
             "name": "Баварский мохентохен",
             "size": "2 шт. 320 г",
             "description": "пшеничная лепешка, сладкий горчичный соус, охотничьи колбаски, грудинка гриль (свинина), листья салата, перец гриль, сыр моцарелла",
@@ -286,7 +286,7 @@
         },
         "product6": {
             "id": "5",
-            "img": "./images/snacks/gm.jpg",
+            "img": "/images/snacks/gm.jpg",
             "name": "Грибной мохентохен",
             "size": "2 шт. 320 г",
             "description": "пшеничная лепешка, чесночный соус, ветчина, шампиньоны гриль, маринованные опята, сыр моцарелла",
@@ -294,7 +294,7 @@
         },
         "product7": {
             "id": "6",
-            "img": "./images/snacks/btm.jpg",
+            "img": "/images/snacks/btm.jpg",
             "name": "Биф тейсти мохентохен",
             "size": "2 шт. 320 г",
             "description": "пшеничная лепешка, соус гриль, фарш (говядина), грудинка (свинина), листья салата, свежие томаты, свежий лук, сыр моцарелла",
@@ -305,7 +305,7 @@
     "snacksset": {
         "product1": {
             "id": "0",
-            "img": "./images/snacks/mset.jpg",
+            "img": "/images/snacks/mset.jpg",
             "name": "Мохентохен сет",
             "size": "4 шт. 640 г",
             "cost": "14,90"
@@ -315,7 +315,7 @@
     "snacksfreetur": {
         "product1": {
             "id": "0",
-            "img": "./images/snacks/kur.jpg",
+            "img": "/images/snacks/kur.jpg",
             "name": "Куриные крылышки",
             "size": "220 г",
             "description": "куриные крылышки",
@@ -323,7 +323,7 @@
         },
         "product2": {
             "id": "1",
-            "img": "./images/snacks/nag.jpg",
+            "img": "/images/snacks/nag.jpg",
             "name": "Куриные наггетсы",
             "size": "14 шт. 245 г",
             "description": "куриное филе, панировка, приправы",
@@ -331,7 +331,7 @@
         },
         "product3": {
             "id": "2",
-            "img": "./images/snacks/kart.jpg",
+            "img": "/images/snacks/kart.jpg",
             "name": "Картофель по-деревенски",
             "size": "300 г",
             "description": "картофель, приправы",
@@ -339,7 +339,7 @@
         },
         "product4": {
             "id": "3",
-            "img": "./images/snacks/dr.jpg",
+            "img": "/images/snacks/dr.jpg",
             "name": "Мини-драники",
             "size": "10 шт. 250 г",
             "description": "картофель, лук, приправы",
@@ -350,7 +350,7 @@
     "snacksrolls": {
         "product1": {
             "id": "0",
-            "img": "./images/snacks/rl.jpg",
+            "img": "/images/snacks/rl.jpg",
             "name": "Салат-ролл с лососем",
             "size": "1шт. 200 г",
             "description": "(подается в холодном виде) листья салата, свежие томаты, сливочный сыр, филе лосося слабосоленое, лимонный сок, пшеничная лепешка",
@@ -359,7 +359,7 @@
 
         "product2": {
             "id": "1",
-            "img": "./images/snacks/rc.jpg",
+            "img": "/images/snacks/rc.jpg",
             "name": "Салат-ролл цезарь",
             "size": "1шт. 200 г",
             "description": "(подается в холодном виде) листья салата, американский соус ранч, свежие томаты, филе цыпленка, пшеничная лепешка",
@@ -367,7 +367,7 @@
         },
         "product3": {
             "id": "2",
-            "img": "./images/snacks/rct.jpg",
+            "img": "/images/snacks/rct.jpg",
             "name": "Салат-ролл с цыпленком и вяленым томатом",
             "size": "1шт. 200 г",
             "description": "(подается в холодном виде) листья салата, филе цыпленка копчено-вареное, сливочный сыр, свежий болгарский перец, томаты полусушеные маринованные, пшеничная лепешка",
@@ -378,7 +378,7 @@
     "desserts": {
         "product1": {
             "id": "0",
-            "img": "./images/desserts/ch.jpg",
+            "img": "/images/desserts/ch.jpg",
             "name": "Чизкейк",
             "size": "1 порция / 108 г",
             "cost": "5,90"
@@ -386,14 +386,14 @@
 
         "product2": {
             "id": "1",
-            "img": "./images/desserts/sht.jpg",
+            "img": "/images/desserts/sht.jpg",
             "name": "Шоколадный торт",
             "size": "1порция / 108 г",
             "cost": "5,90"
         },
         "product3": {
             "id": "2",
-            "img": "./images/desserts/m.jpg",
+            "img": "/images/desserts/m.jpg",
             "name": "Медовик",
             "size": "1 порция / 119 г",
             "cost": "5,90"
@@ -403,154 +403,154 @@
     "drinks": {
         "product1": {
             "id": "0",
-            "img": "./images/drinks/c1.jpg",
+            "img": "/images/drinks/c1.jpg",
             "name": "Coca-Cola",
             "size": "1 л",
             "cost": "2,80"
         },
         "product2": {
             "id": "1",
-            "img": "./images/drinks/c0.jpg",
+            "img": "/images/drinks/c0.jpg",
             "name": "Coca-Cola",
             "size": "0.5 л",
             "cost": "2,10"
         },
         "product3": {
             "id": "2",
-            "img": "./images/drinks/cv1.jpg",
+            "img": "/images/drinks/cv1.jpg",
             "name": "Coca-Cola Vanilla",
             "size": "1 л",
             "cost": "2,80"
         },
         "product4": {
             "id": "3",
-            "img": "./images/drinks/cv0.jpg",
+            "img": "/images/drinks/cv0.jpg",
             "name": "Coca-Cola Vanilla",
             "size": "0.5 л",
             "cost": "2,10"
         },
         "product5": {
             "id": "4",
-            "img": "./images/drinks/cz0.jpg",
+            "img": "/images/drinks/cz0.jpg",
             "name": "Coca-Cola Zero",
             "size": "0.5 л",
             "cost": "2,10"
         },
         "product6": {
             "id": "5",
-            "img": "./images/drinks/fan1.jpg",
+            "img": "/images/drinks/fan1.jpg",
             "name": "Fanta Апельсин",
             "size": "1 л",
             "cost": "2,80"
         },
         "product7": {
             "id": "6",
-            "img": "./images/drinks/fan0.jpg",
+            "img": "/images/drinks/fan0.jpg",
             "name": "Fanta Апельсин",
             "size": "0.5 л",
             "cost": "2,10"
         },
         "product8": {
             "id": "7",
-            "img": "./images/drinks/spr0.jpg",
+            "img": "/images/drinks/spr0.jpg",
             "name": "Sprite",
             "size": "0.5 л",
             "cost": "2,10"
         },
         "product9": {
             "id": "8",
-            "img": "./images/drinks/bonnegaz.jpg",
+            "img": "/images/drinks/bonnegaz.jpg",
             "name": "BonAqua Негаз.",
             "size": "0.5 л",
             "cost": "1,40"
         },
         "product10": {
             "id": "9",
-            "img": "./images/drinks/bongaz.jpg",
+            "img": "/images/drinks/bongaz.jpg",
             "name": "BonAqua Среднегаз.",
             "size": "0.5 л",
             "cost": "1,40"
         },
         "product11": {
             "id": "10",
-            "img": "./images/drinks/bor.jpg",
+            "img": "/images/drinks/bor.jpg",
             "name": "Вода минеральная «Боржоми»",
             "size": "0.75 л",
             "cost": "3,90"
         },
         "product12": {
             "id": "11",
-            "img": "./images/drinks/fuzch.jpg",
+            "img": "/images/drinks/fuzch.jpg",
             "name": "Fuzetea Лесные ягоды-гибискус",
             "size": "0.5 л",
             "cost": "2,20"
         },
         "product13": {
             "id": "12",
-            "img": "./images/drinks/fuzkl.jpg",
+            "img": "/images/drinks/fuzkl.jpg",
             "name": "Fuzetea Клубника и малина",
             "size": "0.5 л",
             "cost": "2,20"
         },
         "product14": {
             "id": "13",
-            "img": "./images/drinks/fuzl.jpg",
+            "img": "/images/drinks/fuzl.jpg",
             "name": "Fuzetea Манго-ромашка",
             "size": "0.5 л",
             "cost": "2,20"
         },
         "product15": {
             "id": "14",
-            "img": "./images/drinks/rop.jpg",
+            "img": "/images/drinks/rop.jpg",
             "name": "Сок RICH Апельсин",
             "size": "1 л",
             "cost": "3,90"
         },
         "product16": {
             "id": "15",
-            "img": "./images/drinks/ryabl.jpg",
+            "img": "/images/drinks/ryabl.jpg",
             "name": "Сок RICH Яблоко",
             "size": "1 л",
             "cost": "3,90"
         },
         "product17": {
             "id": "16",
-            "img": "./images/drinks/rmult.jpg",
+            "img": "/images/drinks/rmult.jpg",
             "name": "Сок RICH Мультифрут",
             "size": "1 л",
             "cost": "3,90"
         },
         "product18": {
             "id": "17",
-            "img": "./images/drinks/rvish.jpg",
+            "img": "/images/drinks/rvish.jpg",
             "name": "Сок RICH Вишня",
             "size": "1 л",
             "cost": "3,90"
         },
         "product19": {
             "id": "18",
-            "img": "./images/drinks/rt.jpg",
+            "img": "/images/drinks/rt.jpg",
             "name": "Сок RICH Томат",
             "size": "1 л",
             "cost": "3,90"
         },
         "product20": {
             "id": "19",
-            "img": "./images/drinks/rman.jpg",
+            "img": "/images/drinks/rman.jpg",
             "name": "Сок RICH Апельсин Манго",
             "size": "1 л",
             "cost": "3,90"
         },
         "product21": {
             "id": "20",
-            "img": "./images/drinks/burn.jpg",
+            "img": "/images/drinks/burn.jpg",
             "name": "Burn",
             "size": "0.25 л",
             "cost": "3,20"
         },
         "product22": {
             "id": "21",
-            "img": "./images/drinks/burnk.jpg",
+            "img": "/images/drinks/burnk.jpg",
             "name": "Burn Яблоко Киви",
             "size": "0.25 л",
             "cost": "3,20"
@@ -560,43 +560,43 @@
     "sauces": {
         "product1": {
             "id": "0",
-            "img": "./images/sauces/tom.jpg",
+            "img": "/images/sauces/tom.jpg",
             "name": "Кетчуп томатный",
             "cost": "0,70"
         },
         "product2": {
             "id": "1",
-            "img": "./images/sauces/bar.jpg",
+            "img": "/images/sauces/bar.jpg",
             "name": "Соус Барбекю",
             "cost": "0,70"
         },
         "product3": {
             "id": "2",
-            "img": "./images/sauces/gor.jpg",
+            "img": "/images/sauces/gor.jpg",
             "name": "Соус Горчичный",
             "cost": "0,70"
         },
         "product4": {
             "id": "3",
-            "img": "./images/sauces/kis.jpg",
+            "img": "/images/sauces/kis.jpg",
             "name": "Соус Кисло-сладкий",
             "cost": "0,70"
         },
         "product5": {
             "id": "4",
-            "img": "./images/sauces/sir.jpg",
+            "img": "/images/sauces/sir.jpg",
             "name": "Соус Сырный",
             "cost": "0,70"
         },
         "product6": {
             "id": "5",
-            "img": "./images/sauces/ter.jpg",
+            "img": "/images/sauces/ter.jpg",
             "name": "Соус Терияки",
             "cost": "0,70"
         },
         "product7": {
             "id": "6",
-            "img": "./images/sauces/ches.jpg",
+            "img": "/images/sauces/ches.jpg",
             "name": "Соус Чесночный",
             "cost": "0,70"
         }

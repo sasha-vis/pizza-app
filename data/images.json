@@ -1,0 +1,23 @@
+{
+    "contacts": {
+        "inst": "/images/contacts/instagram.png",
+        "vkon": "/images/contacts/vkontakte.png"
+    },
+    "pay": {
+        "belcard": "/images/pay/belcard.png",
+        "bePaid": "/images/pay/bePaid.png",
+        "cartaPokupok": "/images/pay/cartaPokupok.png",
+        "fun": "/images/pay/fun.jpg",
+        "halva": "/images/pay/halva.png",
+        "maestro": "/images/pay/maestro.png",
+        "magnit": "/images/pay/magnit.png",
+        "masterCard": "/images/pay/masterCard.png",
+        "masterCardSecur": "/images/pay/masterCardSecur.png",
+        "verVisa": "/images/pay/verVisa.png",
+        "visa": "/images/pay/visa.png"
+    },
+    "slides": {
+        "slide1": "/images/slider/slide1.jpg",
+        "slide2": "/images/slider/slide2.jpg"
+    }
+}

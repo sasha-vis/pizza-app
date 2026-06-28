@@ -6,8 +6,16 @@
 # testing
 /coverage
 
+# next.js
+/.next/
+/out/
+
 # production
-/dist
+/build
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
 
 # misc
 .DS_Store

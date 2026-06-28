@@ -12,6 +12,13 @@ const compat = new FlatCompat({
 const eslintConfig = [
 	...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
 	{
+		// Каталог товаров отдаёт много статичных картинок, размер которых задаёт CSS.
+		// next/image здесь не нужен — оставляем обычный <img>.
+		rules: {
+			"@next/next/no-img-element": "off",
+		},
+	},
+	{
 		ignores: [".next/**", "out/**", "node_modules/**"],
 	},
 ];

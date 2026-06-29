@@ -59,6 +59,10 @@ Tailwind → админка → Storybook/PWA**. Детали уточняютс
       контакты, иконки оплаты. Чтобы менять брендинг сайта из админки.
 - [ ] Картинки товаров и логотип — в **Supabase Storage** (вместо
       `public/images`), загрузка файлов.
+- [ ] Перевести каталог с `<img>` на **`next/image`** (lazy-load, WebP/AVIF, без
+      сдвигов вёрстки); разрешить домен Storage в `next.config` (`images.
+      remotePatterns`); вернуть правило ESLint `@next/next/no-img-element`.
+      `<picture>` не нужен — art direction отсутствует.
 - [ ] **TanStack Query** — загрузка и кэш меню/настроек из Supabase (заменяет
       импорт JSON в `lib/products.ts`).
 - [ ] RLS: публичное **чтение** `products`/`settings` (для витрины); запись —

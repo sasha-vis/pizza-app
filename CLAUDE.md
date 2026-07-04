@@ -6,11 +6,17 @@
 
 Интернет-магазин пиццы «Пицца Феникс» (доставка в Минске): каталог товаров,
 корзина с персистом в localStorage, форма оформления заказа с записью заявки в
-БД. Изначально — CRA/React 18 SPA на GitHub Pages; мигрирован на
+БД. Изначально — CRA/React 17 SPA на GitHub Pages (2021); мигрирован на
 **Next.js 15 (App Router)** (Фаза 1), заказы пишутся в **Supabase** (Фаза 2).
 Деплой — на Vercel (ветка `gh-pages` и старый GitHub Pages удалены).
 
 Теги: `v1` — оригинал (CRA/React 17, 2021); `v2` — Next.js + Supabase.
+
+**Целевая архитектура — Feature-Based:** код группируется по фичам
+(`features/catalog`, `features/cart`, `features/checkout` + `shared/`), а не по
+техническим слоям (`components/`, `lib/`). Переход запланирован Фазой 3 (см.
+`PLAN.md`); до него новый код кладём по текущей структуре, но проектируем с
+оглядкой на будущие фичи — не плоди cross-feature связей без нужды.
 
 ## Стек
 
@@ -36,8 +42,8 @@ npm run lint     # eslint .
 npm run format   # prettier --write .
 ```
 
-Тестов в проекте нет. Проверка изменений — `npm run lint` + `npx tsc --noEmit`
-+ `npm run build`, затем ручная проверка в браузере (см. сценарии ниже).
+Тестов в проекте нет. Проверка изменений — `npm run lint`, `npx tsc --noEmit`
+и `npm run build`, затем ручная проверка в браузере (см. сценарии ниже).
 
 ## Архитектура
 
@@ -48,8 +54,9 @@ npm run format   # prettier --write .
   `/images/ui/phoenix-logo.png`), `<Nav/>`, `{children}`, `<ScrollTopButton/>`.
   Импортирует `globals.css` + `app/styles/{app,cart,media}.css`.
 - **`app/page.tsx`** (server) — главная (бывш. `Catalog.jsx`): `<Slider/>` +
-  секции по категориям. Закуски сгруппированы из 4 списков. Якоря секций — через
-  `id` на `div` (`id="pizzas"` и т.п.), навигация — ссылки `/#pizzas`.
+  секции каталога циклом по `SECTIONS` из `lib/products.ts` (заголовок, якорь
+  `id`, `<ProductList/>` на каждую категорию секции). Навигация — ссылки
+  `/#pizzas` и т.п.
 - **`app/cart/page.tsx`** (client) — корзина: сумма из `useTotalCost`,
   `<CartList/>`, `<OrderPopup/>`.
 
@@ -85,11 +92,22 @@ npm run format   # prettier --write .
   объекта — `"product" + (Number(id) + 1)`. Пути картинок — корневые `/images/...`.
 - **`data/images.json`** — пути к картинкам слайдера, оплаты, контактов (корневые
   `/images/...`).
-- **`lib/types.ts`** — `Product`, `CategoryKey`.
-- **`lib/products.ts`** — доступ к меню: `getProducts(category)`,
-  `getProduct(category, id)` (ключ `'product'+(Number(id)+1)`),
-  `getCost(category, id)` (`parseFloat(cost.replace(',', '.'))`), и `CATEGORIES`
-  (`{ key, listClassName }[]` для рендера секций).
+- **`lib/types.ts`** — `Product`; `CategoryKey` здесь только **реэкспортится**
+  (источник — `lib/products.ts`), чтобы старые импорты `from "@/lib/types"`
+  продолжали работать.
+- **`lib/products.ts`** — **единый источник категорий** и доступ к меню:
+    - `CATEGORIES` (`as const`) — массив `{ key, listClassName, section }`, где
+      `section` = `{ id, title, className }` — раздел главной, к которому
+      относится категория. Добавляешь/меняешь категорию — правишь **только этот
+      массив**.
+    - `CategoryKey` выводится из него (`(typeof CATEGORIES)[number]["key"]`),
+      ручного union больше нет.
+    - `SECTIONS` — секции главной: соседние категории с одинаковым `section.id`
+      схлопываются в одну секцию (так 4 списка закусок рендерятся под одним
+      заголовком «Закуски»).
+    - `getProducts(category)`, `getProduct(category, id)` (ключ
+      `'product'+(Number(id)+1)`), `getCost(category, id)`
+      (`parseFloat(cost.replace(',', '.'))`).
 - **`lib/store.ts`** — Zustand-стор корзины (см. ниже).
 - **`lib/supabase.ts`** — клиент Supabase (`createClient` из URL + publishable-
   ключа в env).
@@ -117,7 +135,7 @@ npm run format   # prettier --write .
 ### Заказы и Supabase (`lib/supabase.ts`, `lib/orders.ts`)
 
 - Таблица **`orders`**: `id, created_at, name, phone, address, items jsonb, total,
-  status` (по умолчанию `status = 'new'`). `items` хранит
+status` (по умолчанию `status = 'new'`). `items` хранит
   `{ products: {name, size?, qty, cost}[], payment, comment }`.
 - **RLS включён**, политика разрешает роли `anon` **только `INSERT`**
   (`with check (true)`). С фронта нельзя читать/править заявки — они видны лишь в
@@ -144,13 +162,17 @@ npm run format   # prettier --write .
   монтирования), иначе hydration mismatch.
 - **`ProductList` — серверный**, интерактив вынесен в клиентский `AddButton`.
   Сохраняй это разделение: не тащи хуки стора в `ProductList`.
+- **Категории — только в `CATEGORIES`** (`lib/products.ts`): не возвращай ручной
+  union `CategoryKey` в `types.ts` и не дублируй список секций в `page.tsx`.
 - **ESLint:** правило `@next/next/no-img-element` отключено намеренно — каталог
   отдаёт много статичных `<img>`, размеры задаёт CSS (не `next/image`).
   `next-env.d.ts` — в `ignores` (автоген triple-slash reference).
-- **CSS-классы списков** жёстко связаны со стилями: `pizzas-goods`, `snacks-goods`,
-  `snacks-goods-set` (без flex-стилей — как в оригинале), `snacks-goods-freetur`,
-  `snacks-goods-rolls`, `desserts-goods`, `drinks-goods`, `sauces-goods`. Значения
-  — в `CATEGORIES` и в `app/page.tsx`; менять синхронно с CSS.
+- **CSS-классы списков и секций** жёстко связаны со стилями в `app/styles/`:
+  `pizzas-goods`, `snacks-goods`, `snacks-goods-set` (без flex-стилей — как в
+  оригинале), `snacks-goods-freetur`, `snacks-goods-rolls`, `desserts-goods`,
+  `drinks-goods`, `sauces-goods`, плюс `main-pizzas`/`main-snacks`/... у секций.
+  Все значения — в `CATEGORIES`; менять синхронно с CSS. Схема с
+  `listClassName` — временная, отпадёт при переводе вёрстки на Tailwind.
 - **Поля товара `size`/`description`** у части категорий отсутствуют в данных —
   рендерятся условно по наличию. Не делай их обязательными в разметке.
 - При запуске под Node возможен `ExperimentalWarning: localStorage` (SSR persist) —
@@ -165,4 +187,6 @@ npm run format   # prettier --write .
   (`export function ...`); страницы — `export default`.
 - Клиентские компоненты помечаются директивой `"use client"`.
 - Отступы табами (Prettier). Текст интерфейса — на русском.
+- Коммиты — на английском (conventional-префиксы `feat:`, `docs:`, ...);
+  README — на английском, `CLAUDE.md`/`PLAN.md` — на русском.
 - Алиас импорта `@/*` → корень проекта (см. `tsconfig.json`).

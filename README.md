@@ -13,16 +13,16 @@ since been migrated to **Next.js 15 (App Router)** and connected to **Supabase**
 
 ## Tech stack
 
-| Layer        | Technology                                              |
-| ------------ | ------------------------------------------------------- |
-| Framework    | Next.js 15 (App Router), React 19                       |
-| Language     | TypeScript (strict)                                     |
-| Styling      | Tailwind CSS v4 + migrated plain CSS                    |
-| Client state | Zustand 5 (cart, persisted to `localStorage`)           |
-| Backend / DB | Supabase (Postgres) — orders + admin dashboard          |
-| Carousel     | embla-carousel-react                                    |
-| Tooling      | ESLint 9 (flat config), Prettier                        |
-| Deployment   | Vercel (front end) + Supabase (DB)                      |
+| Layer        | Technology                                     |
+| ------------ | ---------------------------------------------- |
+| Framework    | Next.js 15 (App Router), React 19              |
+| Language     | TypeScript (strict)                            |
+| Styling      | Tailwind CSS v4 + migrated plain CSS           |
+| Client state | Zustand 5 (cart, persisted to `localStorage`)  |
+| Backend / DB | Supabase (Postgres) — orders + admin dashboard |
+| Carousel     | embla-carousel-react                           |
+| Tooling      | ESLint 9 (flat config), Prettier               |
+| Deployment   | Vercel (front end) + Supabase (DB)             |
 
 ## Features
 
@@ -102,10 +102,19 @@ data/           products.json, images.json
 public/images/  product images, UI icons, logo
 ```
 
+The catalog categories live in a single source of truth — the `CATEGORIES`
+array in `lib/products.ts` (the `CategoryKey` type is derived from it, and the
+home-page sections are built from it).
+
+The codebase is being restructured into a **feature-based architecture**
+(`features/catalog`, `features/cart`, `features/checkout` + `shared/`, with
+`app/` reduced to thin route composition) — see the roadmap below.
+
 ## Roadmap
 
 - [x] Migrate from CRA/Vite to Next.js 15 + TypeScript + Zustand
 - [x] Persist orders to Supabase with form validation
+- [ ] Restructure into a feature-based architecture (`features/*` + `shared/`)
 - [ ] Move menu & site settings to the database (Supabase + TanStack Query)
 - [ ] Convert styling to Tailwind utilities
 - [ ] Admin panel (manage products, branding, order statuses)

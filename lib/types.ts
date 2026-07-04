@@ -7,12 +7,7 @@ export type Product = {
 	cost: string;
 };
 
-export type CategoryKey =
-	| "pizzas"
-	| "snacks"
-	| "snacksset"
-	| "snacksfreetur"
-	| "snacksrolls"
-	| "desserts"
-	| "drinks"
-	| "sauces";
+// Категории перечислены ровно в одном месте — в CATEGORIES (lib/products.ts).
+// CategoryKey выводится оттуда; здесь только реэкспорт, чтобы старые импорты
+// `from "@/lib/types"` продолжали работать.
+export type { CategoryKey } from "@/lib/products";
